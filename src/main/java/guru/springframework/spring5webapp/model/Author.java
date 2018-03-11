@@ -19,15 +19,21 @@ public class Author {
 	 * id
 	 */
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String firstName;
 	private String lastName;
-	
-	@ManyToMany(mappedBy="authors")
+
+	@ManyToMany(mappedBy = "authors")
 	private Set<Book> books = new HashSet<>();
 
 	public Author() {
+	}
+
+	public Author(String firstName, String lastName) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 
 	public Author(String firstName, String lastName, Set<Book> books) {
